@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block title%} Alarm Page {% endblock title %}
+
+{%block content_title%} <h1>Metro Alarm</h1> {% endblock content_title %}
+
+{%block content%}
+    <form method = "POST" action ='.'>  {% csrf_token %}
+        {{ form.as_p }}
+        <button type = 'submit'>Send</button>
+    </form>
+
+{%endblock content%}
