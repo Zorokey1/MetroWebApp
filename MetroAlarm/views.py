@@ -5,15 +5,6 @@ from .forms import stationForm
 import time
 from django.core.signals import request_finished
 
-
-from google.transit import gtfs_realtime_pb2
-import time
-import requests
-import json
-import os
-from pathlib import Path
-import httpx
-import asyncio
 # Create your views here.
 
 def home_view(request):
@@ -22,9 +13,11 @@ def home_view(request):
 
 def alarm_view(request):
     form = stationForm(request.POST or None)
-    if (request.method == "POST"):
-        request.session
-        redirect("active/")
+    if form.is_valid():
+        request.session['currentStation'] = request.POST['currentStation']
+        request.session['destinationStation'] = request.POST['destinationStation']
+        request.session['endpoint'] = request.POST['endpoint']
+        return redirect("active/")
         
     context = {'form': form}
     return render(request, "alarm_page.html", context)
@@ -44,6 +37,3 @@ async def async_helper():
         print(feed)
         print('---------------------------------------')
 '''
-
-def about_view(request):
-    return None

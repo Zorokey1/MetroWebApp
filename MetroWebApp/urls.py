@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
     path('alarm/', alarm_view),
-    path('active/', active_view)
+    path('alarm/active/', active_view)
 ]

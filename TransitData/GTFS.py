@@ -53,7 +53,7 @@ class GTFS:
         return GTFS.directionDict[endpoint]
     
 
-    def getUserTrain(currentStationID,destinationStation,endpoint):
+    def getUserTrain(currentStationID,endpoint):
         platformTrains = GTFS.getGTFSData(stationID=currentStationID)
         trainID = 'Error: Train not Found'
         stationDirection = GTFS.getDirectionNumber(endpoint)
