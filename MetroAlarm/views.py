@@ -38,14 +38,3 @@ def getTimingData(request):
     while(not GTFS.nextStation(userTrainID,1).equals(destinationStationID)):
         pass
     return JsonResponse({"Status": "True"}) 
-'''
-async def async_helper():
-    async with httpx.AsyncClient() as client:
-        headers = {'api_key': '1b32768b1e994630bcffe0177cbe4350'}
-        feed = gtfs_realtime_pb2.FeedMessage()
-        response = await client.get('https://api.wmata.com/gtfs/rail-gtfsrt-vehiclepositions.pb', headers=headers)
-        feed.ParseFromString(response.content)
-        await asyncio.sleep(10)
-        print(feed)
-        print('---------------------------------------')
-'''
