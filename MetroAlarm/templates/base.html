@@ -1,5 +1,8 @@
-{%load static %}
-<title> {%block title%} Title to Replace {%endblock title%}</title>
+<head>
+    {%load static %}
+    {% block javascript %}  {% endblock javascript%}
+    <title> {%block title%} Title to Replace {%endblock title%}</title>
+</head>
 
 <header> 
     <nav> 

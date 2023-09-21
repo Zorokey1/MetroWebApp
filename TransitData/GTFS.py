@@ -18,6 +18,9 @@ class GTFS:
     def cleanStopID(id):
         cleanString = id[3:-2]
         return cleanString
+    
+    def getStationID(station):
+        return GTFS.stationDict[station]
 
     def getGTFSData(id=None, stationID=None, line=None):
         headers = {'api_key': '1b32768b1e994630bcffe0177cbe4350'}
